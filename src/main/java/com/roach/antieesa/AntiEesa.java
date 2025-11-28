@@ -1,6 +1,7 @@
 package com.roach.antieesa;
 
 import com.roach.antieesa.checks.CheckManager;
+import com.roach.antieesa.checks.SpeedCheck;
 import com.roach.antieesa.logging.ViolationLogger;
 import com.roach.antieesa.violations.ViolationManager;
 import org.bukkit.plugin.java.JavaPlugin;
@@ -22,8 +23,9 @@ public class AntiEesa extends JavaPlugin {
         instance = this;
 
         this.violationManager = new ViolationManager();
-        this.checkManager = new CheckManager(this, violationManager, logger);
         this.logger = new ViolationLogger(this);
+        this.checkManager = new CheckManager(this, violationManager, logger);
+
 
         getServer().getPluginManager().registerEvents(checkManager, this);
 
@@ -40,6 +42,7 @@ public class AntiEesa extends JavaPlugin {
     private void registerChecks() {
         //Checks added like this:
         //checkManager.registerCheck(new CheckName());
+        checkManager.registerCheck(new SpeedCheck());
 
         getLogger().info("Registered " + checkManager.getChecks().size() + " checks.");
     }

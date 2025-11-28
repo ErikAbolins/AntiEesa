@@ -53,12 +53,15 @@ public class CheckManager implements Listener {
     //Movement Events
     @EventHandler
     public void onPlayerMove(PlayerMoveEvent event) {
+        System.out.println("DEBUG: PlayerMoveEvent fired!"); // ADD THIS
         Player player = event.getPlayer();
 
         if (player.hasPermission("anticheat.bypass")) {
+            System.out.println("DEBUG: Player has bypass"); // ADD THIS
             return;
         }
 
+        System.out.println("DEBUG: About to run checks"); // ADD THIS
         runChecks(player, event);
     }
 
