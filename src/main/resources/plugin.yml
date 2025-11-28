@@ -1,0 +1,24 @@
+main: com.roach.antieesa.AntiEesa
+name: AntiEesa
+version: "1.0-SNAPSHOT"
+api-version: "1.21.11"
+author: YourNameHere
+description: Silent anticheat for gathering evidence on your mates
+commands:
+  ac:
+    description: Anticheat admin commands
+    usage: "/ac <check|logs|clear> [player]"
+    aliases: [anticheat, ac]
+permissions:
+  anticheat.admin:
+    description: Access to anticheat commands and logs
+    default: op
+  anticheat.bypass:
+    description: Bypass anticheat checks (for yourself obviously)
+    default: false
+  anticheat.*:
+    description: All anticheat permissions
+    default: op
+    children:
+      anticheat.admin: true
+      anticheat.bypass: true
