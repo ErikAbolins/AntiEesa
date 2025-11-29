@@ -1,4 +1,4 @@
-package com.roach.antieesa.checks;
+package com.roach.antieesa.checks.movement;
 
 import com.roach.antieesa.checks.Check;
 import com.roach.antieesa.checks.CheckResult;
@@ -19,7 +19,7 @@ public class SpeedCheck extends Check {
 
     // Base speeds (blocks per tick)
     private static final double WALK_SPEED = 0.215;
-    private static final double SPRINT_SPEED = 0.28;
+    private static final double SPRINT_SPEED = 0.38;
     private static final double SPEED_BUFFER = 0.05; // 5% buffer for lag/legit movements
 
     public SpeedCheck() {
@@ -28,7 +28,6 @@ public class SpeedCheck extends Check {
 
     @Override
     public CheckResult check(Player player, Event event) {
-        System.out.println("DEBUG: SpeedCheck.check() called for " + player.getName());
         // Only check PlayerMoveEvent
         if (!(event instanceof PlayerMoveEvent)) {
             return CheckResult.pass();
